@@ -4,7 +4,7 @@
       <div v-if="!isEditing" class="title">
         <img v-if="node.type === 'file'" src="../assets/file.svg" />
         <img v-else src="../assets/folder.svg" />
-        <p>{{ node.name }}</p>
+        <p>{{ nameTruncate }}</p>
       </div>
       <div v-if="!isEditing" class="buttons">
         <button @click="editTitile"><img src="../assets/edit.svg" /></button>
@@ -32,6 +32,15 @@ export default {
       newTitle: this.node.name,
       isEditing: false,
     };
+  },
+  computed: {
+    nameTruncate() {
+      if (this.node.name.length > 20) {
+        return this.node.name.substring(0, 20) + "...";
+      } else {
+        return this.node.name;
+      }
+    },
   },
   methods: {
     setTitle() {

@@ -3,7 +3,6 @@ import Directory from "../Classes";
 
 // Функция для поиска вложенных элементов
 function findElement(arr, payload, param = false) {
-  console.log(param);
   let i = [];
   arr.forEach((el) => {
     if (el.id === payload.dirId) {
